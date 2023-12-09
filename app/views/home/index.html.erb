@@ -1,1 +1,40 @@
-<h1>Home page</h1>
+<style>
+    .image {
+        background-image: url(https://picsum.photos/900/400) !important;
+        height:100%;
+        width: 100%;
+        border-radius: 15px;
+    }
+    .hero {
+        background-color: #ebebeb !important;
+    }
+</style>
+
+<section>
+    <div class="position-relative overflow-hidden p-3 p-md-5 text-center bg-light hero">
+        <div class="row my-4">
+            <div class="col-md-6 p-lg-5 mx-auto my-5 float-left" style="text-align: left;">
+                <h1 class="display-5 fw-normal">Entreprises & freelances étaient faits pour se rencontrer</h1>
+                <p class="lead fw-normal">Trouvez le talent parfait pour propulser vos projets</p>
+            </div>
+            <div class="col-md-6 p-lg-5 mx-auto float-right">
+                <div class="image"></div>
+            </div>
+        </div>
+        <div class="row shadow p-3" style="border-radius: 10px;">
+            <div class="col-md-3">
+                <input class="form-control me-2" type="search" placeholder="Essayez 'Java', 'Développeur Backend' ..." aria-label="Search">
+            </div>
+            <div class="col-md-3">
+                <input class="form-control me-2" type="search" placeholder="Lieu de la mission" aria-label="Search">
+            </div>
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-3 d-flex justify-content-end">
+                <button class="btn btn-outline-success" type="submit">Trouver un freelance</button>
+            </div>
+        </div>
+        <div class="product-device shadow-sm d-none d-md-block"></div>
+        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+    </div>
+</section>
