@@ -1,4 +1,4 @@
-<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
+<%= link_to profile_path(profile), class: "col-sm-12 col-md-6 col-lg-6 col-xl-4", style: "text-decoration: none;" do %>
   <div class="card mb-3" style="width: 100%;" id="<%= dom_id profile %>">
     <img src="https://picsum.photos/900/400" class="card-img-top" alt="...">
     <div class="card-body">
@@ -7,4 +7,4 @@
       <p><small><%= profile.price %></small></p>
     </div>
   </div>
-</div>
+<% end %>
