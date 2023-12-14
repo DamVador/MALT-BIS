@@ -1,14 +1,56 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Profiles</h1>
+<form class="mb-5 px-5 border-bottom border-top-0">
+  <div class="search-form row my-3">
+        <div class="col-md-3">
+            <input class="form-control me-2 rounded-pill" type="search" placeholder="Essayez 'Java', 'Développeur Backend' ..." aria-label="Search">
+        </div>
+        <div class="col-md-3">
+            <input class="form-control me-2 rounded-pill" type="search" placeholder="Lieu de la mission" aria-label="Search">
+        </div>
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-3 d-flex justify-content-end">
+            <button class="btn btn-outline-success rounded-pill" type="submit">Trouver un freelance</button>
+        </div>
+  </div>
+</form>
 
-<div id="profiles">
-  <% if @profiles %>
-    <% @profiles.each do |profile| %>
-      <%= render profile %>
-      <p>
-        <%= link_to "Show this profile", profile %>
-      </p>
-    <% end %>
-  <% end %>
+<div class="containerr d-flex mt-3" style="margin: 15px;">
+  <div class="filter" style="width: 350px;">
+    <h1 class="float-start">Filtres</h1>
+    <form>
+
+    </form>
+  </div>
+
+  <div class="profiles" style="width: 80%; paddin-left: 10px; padding-right: 10px;">
+      <div class="row gx-3 d-flex flex-wrap" id="profiles">
+          <% if @profiles %>
+            <% @profiles.each do |profile| %>
+              <%= render profile %>
+            <% end %>
+          <% end %>
+      </div>
+
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <div class="pager d-flex" style="justify-content: center;">
+              <div class="me-3 previous <%= @page == 0 ? 'disabled' : '' %>">
+                  <%= link_to_if @page > 0, "<< Previous", profiles_path(page: @page - 1) %>
+              </div>
+
+              <div class="next">
+                  <%= link_to "Next >>", profiles_path(page: @page + 1) %>
+              </div>
+          </div>
+        </div>
+         <div class="col-4"></div>
+      </div>
+  </div>
+</div>
+
+<div >
+  
 </div>

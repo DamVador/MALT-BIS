@@ -1,11 +1,15 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[ show edit update destroy ]
 
+  PRODUCTS_SIZE = 24
   # GET /profiles or /profiles.json
   def index
-    if current_user
-      @profiles = Profile.all
-    else
+    #@profiles = Profile.all
+    
+    @page = (params[:page] || 0).to_i
+    @profiles = Profile.offset(PRODUCTS_SIZE * @page).limit(PRODUCTS_SIZE)
+    puts @profiles
+    if not current_user
       render 'home/index'
     end
   end
