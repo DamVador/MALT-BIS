@@ -8,9 +8,9 @@
 
 require 'faker'
 Faker::Config.locale = 'fr'
-User.delete_all
+#User.delete_all
 # Profile.delete_all
-Skill.delete_all
+#Skill.delete_all
 
 33.times do
     User.create!(
@@ -28,14 +28,14 @@ categories = ["Développeur fullstack", "Développeur Backend", "Développeur fr
 prices = [250, 300, 350, 400, 450, 500, 550, 600, 650]
 33.times do
   Profile.create(
-    user_id: k
-    first_name: Faker::Name.first_name
-    last_name: Faker::Name.last_name
-    title: titles.sample
-    location: Faker::Address.city
-    price: prices.sample
-    experience: experiences.sample
-    is_remote: [true, false].sample
+    user_id: k,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    title: titles.sample,
+    location: Faker::Address.city,
+    price: prices.sample,
+    experience: experiences.sample,
+    is_remote: [true, false].sample,
     category: categories.sample
   )
   k += 1
@@ -47,16 +47,16 @@ skills = ["HTML", "CSS", "PHP", "Laravel", "Javascript", "RubyOnRails", "Git", "
 
 skills.each do |s|
     Skill.create(
-        skill: s
+        name: s
     )
 end
 
 80.times do
     u = User.find(rand(User.first.id..User.last.id)).id
     s = Skill.find(rand(Skill.first.id..Skill.last.id)).id
-    if UserSkill.where('user_id', u).where('skill_id', s).empty?
+    if UsersSkill.where('user_id', u).where('skill_id', s).empty?
         UsersSkill.create(
-            user_id: u
+            user_id: u,
             skill_id: s
         )
     end
