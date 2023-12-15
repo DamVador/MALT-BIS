@@ -8,7 +8,8 @@ class ProfilesController < ApplicationController
     
     @page = (params[:page] || 0).to_i
     @profiles = Profile.offset(PRODUCTS_SIZE * @page).limit(PRODUCTS_SIZE)
-    puts @profiles
+    @page_number = Profile.all.count / PRODUCTS_SIZE
+
     if not current_user
       render 'home/index'
     end
