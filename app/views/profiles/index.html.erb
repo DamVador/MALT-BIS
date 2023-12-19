@@ -1,12 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<form class="mb-5 px-5 border-bottom border-top-0">
+<form class="mb-5 px-5 border-bottom border-top-0" hx-get="<%= root_path %>" hx-target="#profiles" hx-swap="outerHTML" hx-select="#profiles">
+  <%= hidden_field_tag(:authenticity_token, form_authenticity_token) %>
   <div class="search-form row my-3">
         <div class="col-md-3">
-            <input class="form-control me-2 rounded-pill" type="search" placeholder="Essayez 'Java', 'Développeur Backend' ..." aria-label="Search">
+            <input class="form-control me-2 rounded-pill" type="search" name="category" placeholder="Essayez 'Java', 'Développeur Backend' ..." aria-label="Search">
         </div>
         <div class="col-md-3">
-            <input class="form-control me-2 rounded-pill" type="search" placeholder="Lieu de la mission" aria-label="Search">
+            <input class="form-control me-2 rounded-pill" type="search" name="location" placeholder="Lieu de la mission" aria-label="Search">
         </div>
         <div class="col-md-3">
         </div>

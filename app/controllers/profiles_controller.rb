@@ -7,12 +7,40 @@ class ProfilesController < ApplicationController
     #@profiles = Profile.all
     
     @page = (params[:page] || 0).to_i
-    @profiles = Profile.offset(PRODUCTS_SIZE * @page).limit(PRODUCTS_SIZE)
-    @page_number = Profile.all.count / PRODUCTS_SIZE
+    puts "============="
+    puts params[:category]
+    puts params[:location]
+    puts  @profiles = Profile.where('location', params[:location]).offset(PRODUCTS_SIZE * @page).limit(PRODUCTS_SIZE)
+    
+    puts "============="
+    # bug here
+    if params[:category].present? and params[:location].present?
+        @profiles = Profile.where('category', params[:category])
+    #@profiles = Profile.where('location LIKE ?', "%#{params[:location]}%").where('category LIKE ?', "%#{params[:category]}%").order('created_at DESC')
+    #@profiles = Profile.where(['location LIKE ? AND category LIKE ?', "%#{params[:location]}%", "%#{params[:category]}%"]).order('created_at DESC')
+      @page_number = @profiles.count / PRODUCTS_SIZE
+    else
+      @page_number = Profile.all.count / PRODUCTS_SIZE
+      @profiles = Profile.offset(PRODUCTS_SIZE * @page).limit(PRODUCTS_SIZE)
+    end
+    puts "PROFILES HERE"
+    puts @profiles
+    puts "======="
 
     if not current_user
       render 'home/index'
     end
+  end
+
+  def search_bar
+    @page = (params[:page] || 0).to_i
+    @page_number = Profile.all.count / PRODUCTS_SIZE
+    @profiles = Profile.where("category", params[:category]).where("location", params[:location]).offset(PRODUCTS_SIZE * @page).limit(PRODUCTS_SIZE)
+    render 'profiles/search_profile'
+  end
+
+  def filter
+
   end
 
   # GET /profiles/1 or /profiles/1.json

@@ -26,13 +26,14 @@ titles = ["Développeur fullstack", "Développeur Backend", "Développeur fronte
 experiences = ["0-2 ans", "3-7 ans", "8 ans et +"]
 categories = ["Développeur fullstack", "Développeur Backend", "Développeur frontend", "Designer", "Consultant marketing", "Manager de projet", "Product manager"]
 prices = [250, 300, 350, 400, 450, 500, 550, 600, 650]
+cities = ["Paris", "Lyon", "Marseille", "Nantes", "Bordeaux", "Toulouse", "Lille", "Grenoble", "Le Havre", "Tours", "Toulon", "Brest", "Clermont-Ferrand"]
 33.times do
   Profile.create(
     user_id: k,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     title: titles.sample,
-    location: Faker::Address.city,
+    location: cities.sample,
     price: prices.sample,
     experience: experiences.sample,
     is_remote: [true, false].sample,

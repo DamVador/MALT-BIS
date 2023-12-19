@@ -1,0 +1,30 @@
+<div class="profiles" style="width: 80%; paddin-left: 10px; padding-right: 10px;">
+      <div class="row gx-3 d-flex flex-wrap" id="profiles">
+          <% if @profiles %>
+            <% @profiles.each do |profile| %>
+              <%= render profile %>
+            <% end %>
+          <% end %>
+      </div>
+
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <div class="pager d-flex" style="justify-content: center;">
+              <div class="me-3 previous <%= @page == 0 ? 'disabled' : '' %>" id="previous">
+                  <button hx-get="<%= profiles_path(page: @page - 1) %>" hx-select-oob="#profiles:outerHTML,#previous:outerHTML, #next:outerHTML" class="btn btn-primary <%= @page == 0 ? 'disabled' : '' %>">
+                      Précédent
+                  </button>
+              </div>
+              
+              <div class="next" id="next">
+                  <button hx-get="<%= profiles_path(page: @page + 1) %>" hx-select-oob="#profiles:outerHTML,#previous:outerHTML, #next:outerHTML" class="btn btn-primary <%= @page == @page_number ? 'disabled' : '' %>">
+                      Suivant
+                  </button>
+              </div>
+              
+          </div>
+        </div>
+         <div class="col-4"></div>
+      </div>
+  </div>
