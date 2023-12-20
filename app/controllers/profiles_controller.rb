@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
     puts "============="
     # bug here
     if params[:category].present? and params[:location].present?
-        @profiles = Profile.where('category', params[:category])
+        @profiles = Profile.where('location LIKE ?', "%#{params[:location]}%")
     #@profiles = Profile.where('location LIKE ?', "%#{params[:location]}%").where('category LIKE ?', "%#{params[:category]}%").order('created_at DESC')
     #@profiles = Profile.where(['location LIKE ? AND category LIKE ?', "%#{params[:location]}%", "%#{params[:category]}%"]).order('created_at DESC')
       @page_number = @profiles.count / PRODUCTS_SIZE

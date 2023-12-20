@@ -18,10 +18,46 @@
 </form>
 
 <div class="containerr d-flex mt-3" style="margin: 15px;">
-  <div class="filter" style="width: 350px;">
-    <h1 class="float-start">Filtres</h1>
+  <div class="filter pe-5" style="width: 350px;">
     <form>
-
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <h4 class="card-title">Filtres</h4>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Tarif / jour
+            <label for="customRange2" class="form-label">Example range</label>
+            <input type="range" class="form-range" min="100" max="1000" id="customRange2">
+          </li>
+          <li class="list-group-item">
+            Niveau d'expérience
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="exp-1">
+              <label class="form-check-label" for="exp-1">
+                0-2 ans
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="exp-2">
+              <label class="form-check-label" for="exp-2">
+                3-7 ans
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="exp-3">
+              <label class="form-check-label" for="exp-3">
+                8 ans et +
+              </label>
+            </div>
+          </li>
+          <li class="list-group-item">Catégorie</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
     </form>
   </div>
 
